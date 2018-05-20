@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>StreeLibrary</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+    <!--Scripts-->
+    <script src="model/Perfil.js"></script>
+    <script src="scripts/Espor.js"></script>
+    <script src="scripts/controlador.js"></script>
+
+</head>
+
+<body>
+    <!--barra de navegação-->
+    <nav class="navbar navbar-expand-sm">
+        <h2 class="navbar-brand">S T R E E T L I B R A R Y</h2>
+        <div class="collapse navbar-collapse" id="collapsibleNavId">
+            <ul class="navbar-nav mr-auto" id="opções">
+
+                <!--OPÇÃO SOBRE-->
+                <li class="nav-item">
+                    <a class="nav-link" href="PagInicial.html">Home</a>
+                </li>
+
+                <!--OPÇÃO CATÁLOGO-->
+                <li class="nav-item">
+                    <a class="nav-link" href="Catalgo.html">Catálogo</a>
+                </li>
+
+                <!--OPÇÃO Notificação-->
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Notificações</a>
+                </li>
+
+                <!--OPÇÃO Levantamento-->
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Levantamento</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav">
+
+                <!--OPÇÃO LOGIN-->
+                <li id="optLogin" class="nav-item">
+                    <a data-toggle="modal" data-target="#loginModal" class="nav-link" href="#">Login</a>
+                </li>
+
+                <!--OPÇÃO REGISTO-->
+                <li id="optRegister" class="nav-item">
+                    <a data-toggle="modal" data-target="#registoModal" class="nav-link" href="#">Registar</a>
+                </li>
+
+                <!--OPÇÃO HI-->
+                <li id="optHi" class="nav-item"></li>
+
+                <!--OPÇÃO LOGOUT-->
+                <li id="optLogout" class="nav-item">
+                    <a class="nav-link" href="#">Logout</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <!--Recentes (Jumbotron)-->
+    <div class="ImageHolder">
+        <p class="lead">Livros Recentes: </p>
+        <hr class="my-2">
+        <form class="form-inline">
+                <div class="form-row ml-2" id="Recentes">
+
+                </div>
+        </form>
+        <br>
+        <p class="lead">Livros Com a maior Pontuação: </p>
+        <hr class="my-2">
+        <form class="form-inline">
+            <div class="form-row ml-2" id="Pontuação">
+
+            </div>
+        </form>
+    </div>
+
+
+
+
+
+    <!-- Modal Register-->
+    <div class="modal fade" id="registoModal" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="modelTitleId">Registar</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+
+                    <div class="form-group" id="frmRegisto">
+
+                        <!--Propriedade Nome-->
+                        <label for="nome">Nome: </label>
+                        <input type="text" class="form-control" name="" id="nome">
+
+                        <!--Propriedade E-mail-->
+                        <label for="email">Email: </label>
+                        <input type="text" class="form-control" name="" id="email">
+
+                        <!--Propriedade Password-->
+                        <label for="pass1">Palavra Pass:</label>
+                        <input type="password" class="form-control" name="" id="pass1">
+                        <label for="pass2">Escreva outra vez a Palavra Pass:</label>
+                        <input type="password" class="form-control" name="" id="pass2">
+
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <input type="submit" class="btn btn-primary" id="submit" value="Registar" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal  Log-in-->
+    <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="modelTitleId">Log in</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="email">Email: </label>
+                        <input type="email" class="form-control" name="" id="email1">
+
+                        <label for="pass">Palavra Pass:</label>
+                        <input type="password" class="form-control" name="" id="pass">
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <input type="submit" id="entrar" class="btn btn-primary" value="Entrar" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

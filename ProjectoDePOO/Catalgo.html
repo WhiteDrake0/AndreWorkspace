@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Catalgo</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+    <!-- Font Awesome -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js" integrity="sha384-slN8GvtUJGnv6ca26v8EzVaR9DC58QEwsIk9q1QXdCU8Yu8ck/tL/5szYlBbqmS+"
+        crossorigin="anonymous"></script>
+
+
+    <!--Scripts-->
+    <script src="model/Livro.js"></script>
+    <script src="scripts/Catalogar.js"></script>
+
+</head>
+
+<body>
+    <!--barra de navegação-->
+    <nav class="navbar navbar-expand-sm">
+        <h2 class="navbar-brand">S T R E E T L I B R A R Y</h2>
+        <div class="collapse navbar-collapse" id="collapsibleNavId">
+            <ul class="navbar-nav mr-auto" id="opções">
+
+                <!--OPÇÃO SOBRE-->
+                <li class="nav-item">
+                    <a class="nav-link" href="PagInicial.html">Home</a>
+                </li>
+
+                <!--OPÇÃO CATÁLOGO-->
+                <li class="nav-item">
+                    <a class="nav-link" href="Catalgo.html">Catálogo</a>
+                </li>
+
+                <!--OPÇÃO Notificação-->
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Notificações</a>
+                </li>
+
+                <!--OPÇÃO Levantamento-->
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Levantamento</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav">
+                <!--OPÇÃO HI-->
+                <li id="optHi" class="nav-item"></li>
+
+                <!--OPÇÃO LOGOUT-->
+                <li id="optLogout" class="nav-item">
+                    <a class="nav-link" href="#">Logout</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="jumbotron ImageHolder">
+
+        <h1 class="display-3">Catálogo de Livros</h1>
+        <hr class="my-2">
+
+        <!--Form para manager o catalgo-->
+        <form id="frm">
+            <div class="form-row">
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modelId">
+                    Doar Livro
+                </button>
+            </div>
+            <!--Honde os livros vão estar espostos-->
+            <br>
+            <div class="form-row">
+
+                <div class="container" id="Catalgo"></div>
+
+            </div>
+        </form>
+
+    </div>
+
+    <!--Modal para doar Livros-->
+    <div class="modal fade" id="modelId" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="modelTitleId">Doar livro</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <div class="form-group" id="DadosLivro">
+
+                            <!--Titulo-->
+                            <label for="titulo">Título: </label>
+                            <input type="text" class="form-control" name="" id="titulo" aria-describedby="helpId" placeholder="">
+                            <small id="helpId" class="form-text text-muted">Escreva o título do livro.</small>
+                            <br>
+
+                            <!--Capa-->
+                            <label for="capa">Imagem da Capa: </label>
+                            <input type="url" class="form-control" name="" id="capa" aria-describedby="helpId" placeholder="">
+                            <small id="helpId" class="form-text text-muted">Escreva um link para imagem da capa do livro.</small>
+                            <br>
+
+                            <!--Autor-->
+                            <label for="autor">Nome do Autor: </label>
+                            <input type="text" class="form-control" name="" id="autor" aria-describedby="helpId" placeholder="">
+                            <small id="helpId" class="form-text text-muted">Escreva o nome do autor do livro.</small>
+                            <br>
+
+                            <!--Descrição-->
+                            <label for="sinopse">Sinopse do livro: </label>
+                            <textarea class="form-control" name="" id="sinopse" rows="5"></textarea>
+                            <br>
+
+                            <!--Data de Lançamento-->
+                            <label for="dataL">Data de lançamento: </label>
+                            <input type="date" class="form-control" name="" id="dataL" aria-describedby="helpId" placeholder="">
+                            <small id="helpId" class="form-text text-muted">Escreva a data em que o livro foi lançado.</small>
+                            <br>
+
+                            <!--Tag-->
+                            <label for="tag">Tags do livro: </label>
+                            <input type="text" class="form-control" name="" id="tag" aria-describedby="helpId" placeholder="">
+                            <small id="helpId" class="form-text text-muted">Escreva o(s) tag(s) do livro.</small>
+                            <br>
+
+                            <!--Genero-->
+                            <label for="genero">Genero: </label>
+                            <select id="genero" class="form-control" required>
+                                <option selected>Escolhe...</option>
+                                <option value="agropecuária">agropecuária</option>
+                                <option value="antologias">antologias</option>
+                                <option value="autoajuda">autoajuda</option>
+                                <option value="aventura">aventura</option>
+                                <option value="biográficos">biográficos</option>
+                                <option value="cartas">cartas</option>
+                                <option value="científicos">científicos</option>
+                                <option value="contos">contos</option>
+                                <option value="crônicas">crônicas</option>
+                                <option value="didáticos">didáticos</option>
+                                <option value="épicos">épicos</option>
+                                <option value="fantasia">fantasia</option>
+                                <option value="ficção científica">ficção científica</option>
+                                <option value="ficção histórica">ficção histórica</option>
+                                <option value="guias de viagem">guias de viagem</option>
+                                <option value="horror">horror</option>
+                                <option value="infantojuvenis">infantojuvenis</option>
+                                <option value="infantis">infantis</option>
+                                <option value="jogos">jogos</option>
+                                <option value="manuaís">manuaís</option>
+                                <option value="jogos de memória">jogos de memória</option>
+                                <option value="natal">natal</option>
+                                <option value="poesia">poesia</option>
+                                <option value="política">política</option>
+                                <option value="romance">romance</option>
+                            </select>
+                            <br>
+
+                            <!--editora-->
+                            <label for="editora">Nome da editora: </label>
+                            <input type="text" class="form-control" name="" id="editora" aria-describedby="helpId" placeholder="">
+                            <small id="helpId" class="form-text text-muted">Escreva o nome da editora. </small>
+                            <br>
+
+                            <!--Npagina-->
+                            <label for="pag">Número de páginas: </label>
+                            <input type="number" class="form-control" name="" id="pag" aria-describedby="helpId" placeholder="">
+                            <small id="helpId" class="form-text text-muted">Escreva o número de paginas do livro. </small>
+                            <br>
+
+                            <!--Estado-->
+                            <label for="estado">Estado do livro: </label>
+                            <select id="estado" class="form-control" required>
+                                <option selected>Estado do livro...</option>
+                                <option value="Bom">Bom</option>
+                                <option value="Aceitável">Aceitável</option>
+                                <option value="Fraco">Fraco</option>
+                            </select>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                    <button type="submit" class="btn btn-primary" id="doar">Doar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Modal view detalhes-->
+    <div class="modal fade" id="ModalLivro" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="Title"></h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <!--Corpo-->
+                    <form id="frmCorpo">
+                        <div class="row" id="corpo">
+
+                        </div>
+                        <div class="row ml-2" id="comentar">
+                            
+                            
+                        </div>
+                    </form>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">fechar</button>
+                    <button type="button" class="btn btn-primary">requesitar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+</body>
+
+</html>
