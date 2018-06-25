@@ -1,0 +1,342 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Catalgo</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+        crossorigin="anonymous">
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+    <!-- Font Awesome -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js" integrity="sha384-slN8GvtUJGnv6ca26v8EzVaR9DC58QEwsIk9q1QXdCU8Yu8ck/tL/5szYlBbqmS+"
+        crossorigin="anonymous"></script>
+
+    <!--Style-->
+    <link rel="stylesheet" href="../css/style1.css">
+
+    <!--Scripts-->
+    <script src="../js/model/comentar.js"></script>
+    <script src="../js/model/Livro.js"></script>
+    <script src="../js/model/Requisitar.js"></script>
+    <script src="../js/scripts/Catalogar.js"></script>
+
+</head>
+
+<body>
+    <!--barra de navegação-->
+    <nav class="navbar navbar-expand-sm">
+        <h2 class="navbar-brand">S T R E E T L I B R A R Y</h2>
+        <div class="collapse navbar-collapse" id="collapsibleNavId">
+            <ul class="navbar-nav mr-auto" id="opções">
+
+                <!--OPÇÃO SOBRE-->
+                <li class="nav-item">
+                    <a class="nav-link" href="PagInicial.html">Home</a>
+                </li>
+
+                <!--OPÇÃO CATÁLOGO-->
+                <li class="nav-item">
+                    <a class="nav-link" href="Catalgo.html">Catálogo</a>
+                </li>
+
+                <!--OPÇÃO Levantamento-->
+                <li class="nav-item" id="opLevantamento">
+                    <a class="nav-link" href="levantamento.html">Levantamento</a>
+                </li>
+
+                <!--OPÇÕES DE ADMINISTRADOR-->
+                <li id="opAdmin">
+                    <div class="dropdown">
+                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" style="color: white">Configurações</a>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenu3" id="teste1">
+                            <a class="dropdown-item" href="bibliotecas.html" id="">Gestor de Bibliotecas</a>
+                            <a class="dropdown-item" href="Definições.html" id="">Definições</a>
+                            <a class="dropdown-item" href="GestaoUtilizadores.html" id="">Gestor de utilizadores</a>
+                        </div>
+                    </div>
+
+                </li>
+            </ul>
+
+
+
+            <!--LOGOUT-->
+            <ul class="navbar-nav">
+                <!--OPÇÃO HI-->
+                <li id="optHi" class="nav-item"></li>
+
+                <!--OPÇÃO LOGOUT-->
+                <li id="optLogout" class="nav-item">
+                    <a class="nav-link" href="#">Logout</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="jumbotron ImageHolder">
+
+        <h1 class="display-3">Catálogo de Livros</h1>
+        <hr class="my-2">
+
+        <!--Form para manager o catalgo-->
+        <form id="frm">
+            <div class="form-row">
+                <div class="form-group mr-2">
+                    <button id="btnDoar" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modelId">
+                        Doar Livro
+                    </button>
+                </div>
+                <!-- Button trigger modal -->
+
+
+                <!--filtros-->
+                <div class="form-group mr-2">
+                    <label for="FiltroTag">tag: </label>
+                    <select id="FiltroTag" class="form-control">
+
+                    </select>
+                </div>
+
+                <div class="form-group mr-2">
+                    <label for="FiltroCategoria">Categoria: </label>
+                    <select id="FiltroCategoria" class="form-control">
+
+                    </select>
+                </div>
+
+                <div class="form-group mt-4 mr-2">
+                    <button id="btnfiltrar" type="button" class="btn btn-primary btn-lg">
+                        Filtrar
+                    </button>
+                </div>
+
+            </div>
+            <!--Honde os livros vão estar espostos-->
+            <br>
+            <div class="form-row">
+
+                <div class="container" id="Catalgo"></div>
+
+            </div>
+        </form>
+
+    </div>
+
+    <!--Modal para doar Livros-->
+    <div class="modal fade" id="modelId" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="modelTitleId">Doar livro</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <div class="form-group" id="DadosLivro">
+
+                            <!--Titulo-->
+                            <label for="titulo">Título: </label>
+                            <input type="text" class="form-control" name="" id="titulo" aria-describedby="helpId" placeholder="">
+                            <small id="helpId" class="form-text text-muted">Escreva o título do livro.</small>
+                            <br>
+
+                            <!--Capa-->
+                            <label for="capa">Imagem da Capa: </label>
+                            <input type="url" class="form-control" name="" id="capa" aria-describedby="helpId" placeholder="">
+                            <small id="helpId" class="form-text text-muted">Escreva um link para imagem da capa do livro.</small>
+                            <br>
+
+                            <!--Autor-->
+                            <label for="autor">Nome do Autor: </label>
+                            <input type="text" class="form-control" name="" id="autor" aria-describedby="helpId" placeholder="">
+                            <small id="helpId" class="form-text text-muted">Escreva o nome do autor do livro.</small>
+                            <br>
+
+                            <!--Descrição-->
+                            <label for="sinopse">Sinopse do livro: </label>
+                            <textarea class="form-control" name="" id="sinopse" rows="5"></textarea>
+                            <br>
+
+                            <!--Data de Lançamento-->
+                            <label for="dataL">Data de lançamento: </label>
+                            <input type="date" class="form-control" name="" id="dataL" aria-describedby="helpId" placeholder="">
+                            <small id="helpId" class="form-text text-muted">Escreva a data em que o livro foi lançado.</small>
+                            <br>
+
+                            <!--Tag-->
+                            <label for="tag">Tag: </label>
+                            <select id="tag" class="form-control" required>
+
+                            </select>
+                            <br>
+
+                            <!--Genero-->
+                            <label for="genero">Categoria: </label>
+                            <select id="genero" class="form-control" required>
+
+                            </select>
+                            <br>
+
+                            <!--editora-->
+                            <label for="editora">Nome da editora: </label>
+                            <input type="text" class="form-control" name="" id="editora" aria-describedby="helpId" placeholder="">
+                            <small id="helpId" class="form-text text-muted">Escreva o nome da editora. </small>
+                            <br>
+
+                            <!--Npagina-->
+                            <label for="pag">Número de páginas: </label>
+                            <input type="number" class="form-control" name="" id="pag" aria-describedby="helpId" placeholder="">
+                            <small id="helpId" class="form-text text-muted">Escreva o número de paginas do livro. </small>
+                            <br>
+
+                            <!--Estado-->
+                            <label for="estado">Estado do livro: </label>
+                            <select id="estado" class="form-control" required>
+                                <option selected>Estado do livro...</option>
+                                <option value="Bom">Bom</option>
+                                <option value="Aceitável">Aceitável</option>
+                                <option value="Fraco">Fraco</option>
+                            </select>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                    <button type="submit" class="btn btn-primary" id="doar">Doar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Modal view detalhes-->
+    <div class="modal fade" id="ModalLivro" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="Title"></h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" id="corpo">
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">fechar</button>
+                    <button type="button" class="btn btn-primary" id="requesitar">requesitar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Modal Editar-->
+    <div class="modal fade" id="modelEdit" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="Title">Levantamento e Entregas</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="container-fluid">
+                    <div class="form-group" id="DadosLivro">
+
+                        <!--Titulo-->
+                        <label for="titulo2">Título: </label>
+                        <input type="text" class="form-control" name="" id="titulo2" aria-describedby="helpId" placeholder="">
+                        <small id="helpId" class="form-text text-muted">Escreva o título do livro.</small>
+                        <br>
+
+                        <!--Capa-->
+                        <label for="capa2">Imagem da Capa: </label>
+                        <input type="url" class="form-control" name="" id="capa2" aria-describedby="helpId" placeholder="">
+                        <small id="helpId" class="form-text text-muted">Escreva um link para imagem da capa do livro.</small>
+                        <br>
+
+                        <!--Autor-->
+                        <label for="autor2">Nome do Autor: </label>
+                        <input type="text" class="form-control" name="" id="autor2" aria-describedby="helpId" placeholder="">
+                        <small id="helpId" class="form-text text-muted">Escreva o nome do autor do livro.</small>
+                        <br>
+
+                        <!--Descrição-->
+                        <label for="sinopse2">Sinopse do livro: </label>
+                        <textarea class="form-control" name="" id="sinopse2" rows="5"></textarea>
+                        <br>
+
+                        <!--Data de Lançamento-->
+                        <label for="dataL2">Data de lançamento: </label>
+                        <input type="date" class="form-control" name="" id="dataL2" aria-describedby="helpId" placeholder="">
+                        <small id="helpId" class="form-text text-muted">Escreva a data em que o livro foi lançado.</small>
+                        <br>
+
+                        <!--Tag-->
+                        <label for="tag2">Tag: </label>
+                        <select id="tag2" class="form-control" required>
+
+                        </select>
+                        <br>
+
+                        <!--Genero-->
+                        <label for="genero2">Categoria: </label>
+                        <select id="genero2" class="form-control" required>
+
+                        </select>
+                        <br>
+
+                        <!--editora-->
+                        <label for="editora2">Nome da editora: </label>
+                        <input type="text" class="form-control" name="" id="editora2" aria-describedby="helpId" placeholder="">
+                        <small id="helpId" class="form-text text-muted">Escreva o nome da editora. </small>
+                        <br>
+
+                        <!--Npagina-->
+                        <label for="pag2">Número de páginas: </label>
+                        <input type="number" class="form-control" name="" id="pag2" aria-describedby="helpId" placeholder="">
+                        <small id="helpId" class="form-text text-muted">Escreva o número de paginas do livro. </small>
+                        <br>
+
+                        <!--Estado-->
+                        <label for="estado2">Estado do livro: </label>
+                        <select id="estado2" class="form-control" required>
+                            <option selected>Estado do livro...</option>
+                            <option value="Bom">Bom</option>
+                            <option value="Aceitável">Aceitável</option>
+                            <option value="Fraco">Fraco</option>
+                        </select>
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">fechar</button>
+                    <button type="button" class="btn btn-primary" id="Alterar">Alterar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+</body>
+
+</html>

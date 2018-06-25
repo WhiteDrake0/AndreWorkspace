@@ -1,0 +1,48 @@
+.nav-link {
+    color: white;
+    font-family: Arial;
+    font-size: 15pt;
+}
+
+.navbar-brand {
+    color: white;
+    font-size: 24pt;
+    font-family: Palatino Linotype;
+}
+
+.navbar{
+    background-color: #A05904;
+}
+
+.ImgCapa {
+    height: 325px;
+}
+.ImageHolder{
+    background-color: #FCD392;
+    height: 294px;
+
+}
+.lead{
+    color: black;
+    font-family: Bookman Old Style;
+    font-size: 22pt;
+}
+
+body{
+    background-color: #FCD392;
+    height: 294px;
+
+}
+
+.fa {
+    font-size: 25px;
+}
+
+.checked {
+    color: orange;
+}
+
+.modal-body {
+    max-height: calc(100vh - 210px);
+    overflow-y: auto;
+}

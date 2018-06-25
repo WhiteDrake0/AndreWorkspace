@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Gestor de utilizadores</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+        crossorigin="anonymous">
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+    <!-- Font Awesome -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js" integrity="sha384-slN8GvtUJGnv6ca26v8EzVaR9DC58QEwsIk9q1QXdCU8Yu8ck/tL/5szYlBbqmS+"
+        crossorigin="anonymous"></script>
+
+    <!--Style-->
+    <link rel="stylesheet" href="../css/style1.css">
+
+    <!--Scripts-->
+    <script src="../js/scripts/UtilizadoresCof.js"></script>
+
+</head>
+
+<body>
+    <!--barra de navegação-->
+    <nav class="navbar navbar-expand-sm">
+        <h2 class="navbar-brand">S T R E E T L I B R A R Y</h2>
+        <div class="collapse navbar-collapse" id="collapsibleNavId">
+            <ul class="navbar-nav mr-auto" id="opções">
+
+                <!--OPÇÃO SOBRE-->
+                <li class="nav-item">
+                    <a class="nav-link" href="PagInicial.html">Home</a>
+                </li>
+
+                <!--OPÇÃO CATÁLOGO-->
+                <li class="nav-item">
+                    <a class="nav-link" href="Catalgo.html">Catálogo</a>
+                </li>
+
+                <!--OPÇÃO Levantamento-->
+                <li class="nav-item">
+                    <a class="nav-link" href="levantamento.html">Levantamento</a>
+                </li>
+
+                <!--OPÇÕES DE ADMINISTRADOR-->
+                <li id="opAdmin">
+                    <div class="dropdown">
+                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" style="color: white">Configurações</a>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenu3" id="teste1">
+                            <a class="dropdown-item" href="bibliotecas.html" id="">Gestor de Bibliotecas</a>
+                            <a class="dropdown-item" href="Definições.html" id="">Definições</a>
+                            <a class="dropdown-item" href="GestaoUtilizadores.html" id="">Gestor de utilizadores</a>
+                        </div>
+                    </div>
+
+                </li>
+            </ul>
+
+
+
+            <!--LOGOUT-->
+            <ul class="navbar-nav">
+                <!--OPÇÃO HI-->
+                <li id="optHi" class="nav-item"></li>
+
+                <!--OPÇÃO LOGOUT-->
+                <li id="optLogout" class="nav-item">
+                    <a class="nav-link" href="#">Logout</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="jumbotron ImageHolder">
+
+        <h1 class="display-3">Gestor de utilizadores</h1>
+        <hr class="my-2">
+
+        <!--Form para manager a Tabela-->
+        <form id="frm">
+            <div class="form-row">
+                <!-- Button trigger modal -->
+                <div class="form-group mr-2">
+                    <input type="text" class="form-control" name="" id="ProcurarInput" aria-describedby="emailHelpId" placeholder="Procurar por email">
+                </div>
+                <div class="form-group mr-2">
+                    <select id="Filtro" class="form-control">
+                        <option value="">Todos</option>
+                        <option value="2">Cliente</option>
+                        <option value="1">Operador</option>
+                        <option value="0">Admenistrador</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-primary" type="submit">Procurar</button>
+                </div>
+            </div>
+
+            <br>
+            <div class="form-row" id="Tabela">
+
+                <!--Tabela-->
+
+            </div>
+        </form>
+
+    </div>
+
+    <!--Modal para Editar Utilizadores-->
+    <div class="modal fade" id="modelEdit" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="modelTitleId">Alterar tipo de Utilizador</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <div class="form-group" id="">
+
+                            <div class="form-group">
+                                <label for="FiltroEdit">Tipo de Utilisadores: </label>
+                                <select id="FiltroEdit" class="form-control">
+                                    <option value="2">Cliente</option>
+                                    <option value="1">Operador</option>
+                                    <option value="0">Admenistrador</option>
+                                </select>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                    <button type="submit" class="btn btn-primary" id="Concluir">Concluir</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+</body>
+
+</html>
